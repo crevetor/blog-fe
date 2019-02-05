@@ -6,7 +6,7 @@ export class Post {
   title: string;
   content: string;
 
-  created_date: string;
-  modified_date: string;
-  published_date: string;
+  created_date: Date;
+  modified_date: Date;
+  published_date: Date;
 }
