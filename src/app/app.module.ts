@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { RouterModule, Routes } from '@angular/router';
 import { HttpClientModule }    from '@angular/common/http';
+import { MarkdownModule } from 'ngx-markdown';
 
 import { MatToolbarModule } from '@angular/material/toolbar';
 
@@ -32,6 +33,7 @@ const appRoutes: Routes = [
       appRoutes,
       { enableTracing: true } // <-- debugging purposes only
     ),
+    MarkdownModule.forRoot(),
     HttpClientModule,
     BrowserAnimationsModule,
     MatToolbarModule,
