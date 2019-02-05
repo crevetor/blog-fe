@@ -14,6 +14,7 @@ import { MatButtonModule, MatSidenavModule, MatIconModule, MatListModule } from 
 import { MatCardModule } from '@angular/material/card';
 import { BlogComponent } from './blog/blog.component';
 import { AboutComponent } from './about/about.component';
+import { PostComponent } from './post/post.component';
 
 const appRoutes: Routes = [
   { path: 'blog', component: BlogComponent },
@@ -25,7 +26,8 @@ const appRoutes: Routes = [
     AppComponent,
     MyNavComponent,
     BlogComponent,
-    AboutComponent
+    AboutComponent,
+    PostComponent
   ],
   imports: [
     BrowserModule,
