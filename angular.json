@@ -25,15 +25,14 @@
             ],
             "styles": [
               "src/styles.css",
-	      "node_modules/prismjs/themes/prism-okaidia.css",
-	      "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
+              "node_modules/prismjs/themes/prism-okaidia.css",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.css"
             ],
-	    "scripts": [
-	      "node_modules/prismjs/prism.js",
-	      "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
-	      "node_modules/prismjs/plugins/autoloader/prism-autoloader.js"
-	    ],
-            "es5BrowserSupport": true
+            "scripts": [
+              "node_modules/prismjs/prism.js",
+              "node_modules/prismjs/plugins/line-numbers/prism-line-numbers.js",
+              "node_modules/prismjs/plugins/autoloader/prism-autoloader.js"
+            ]
           },
           "configurations": {
             "production": {
