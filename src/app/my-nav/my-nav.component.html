@@ -18,7 +18,7 @@
         <span>Antoine's website</span>
       </mat-toolbar-row>
     </mat-toolbar>
-    <mat-toolbar color="accent" *ngIf="titleBarTitle != ''">
+    <mat-toolbar class="title-toolbar" *ngIf="titleBarTitle != ''">
       <div class='title-bar'>{{titleBarTitle}}<span class="title-bar-subtitle mat-small" *ngIf="titelBarSubTitle != ''">{{titleBarSubTitle}}</span></div>
     </mat-toolbar>
     <router-outlet></router-outlet>
