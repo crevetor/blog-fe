@@ -7,7 +7,9 @@
 	<mat-card-content markdown ngPreserveWhitespaces>
 		{{post.content}}
 	</mat-card-content>
-    <mat-card-footer>
-        Tags : <button mat-stroked-button *ngFor="let tag of post.tags">{{tag.tag}}</button>
-    </mat-card-footer>
+    <mat-card-actions>
+		<mat-chip-list aria-label="Tags">
+			<mat-chip color="accent" *ngFor="let tag of post.tags">{{tag.tag}}</mat-chip>
+		</mat-chip-list>
+    </mat-card-actions>
 </mat-card>
