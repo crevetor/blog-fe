@@ -21,6 +21,7 @@ import { PostComponent } from './post/post.component';
 
 const appRoutes: Routes = [
   { path: 'blog', component: BlogComponent },
+  { path: 'blog/post/:id', component: PostComponent},
   { path: 'about', component: AboutComponent },
 ];
 
