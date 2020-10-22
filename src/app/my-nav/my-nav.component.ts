@@ -3,13 +3,13 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 import { Observable } from 'rxjs';
 import { map } from 'rxjs/operators';
 
-import { TitleBarService } from '../titlebar.service';
+import { NavBarService } from '../navbar.service';
 
 @Component({
   selector: 'app-my-nav',
   templateUrl: './my-nav.component.html',
   styleUrls: ['./my-nav.component.scss'],
-  providers: [TitleBarService]
+  providers: [NavBarService]
 })
 export class MyNavComponent {
   titleBarTitle: string = '';
@@ -22,11 +22,11 @@ export class MyNavComponent {
 
   constructor(
     private breakpointObserver: BreakpointObserver,
-    private titleBarService: TitleBarService) {
-      titleBarService.title$.subscribe(
+    private navBarService: NavBarService) {
+      navBarService.title$.subscribe(
         title => {this.titleBarTitle = title}
       );
-      titleBarService.subTitle$.subscribe(
+      navBarService.subTitle$.subscribe(
         subtitle => {this.titleBarSubTitle = subtitle}
       );
     }

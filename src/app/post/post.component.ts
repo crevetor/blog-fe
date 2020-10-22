@@ -5,7 +5,7 @@ import { formatDate } from '@angular/common';
 import { Post } from './post';
 
 import { BlogService } from '../blog.service';
-import { TitleBarService } from '../titlebar.service';
+import { NavBarService } from '../navbar.service';
 
 @Component({
   selector: 'app-post',
@@ -20,7 +20,7 @@ export class PostComponent implements OnInit {
     private route: ActivatedRoute,
     private router: Router,
     private blogService: BlogService,
-    private titlebarService: TitleBarService
+    private navBarService: NavBarService
     ) {
    
    }
@@ -31,7 +31,7 @@ export class PostComponent implements OnInit {
       this.blogService.getPost(Number(postId)).subscribe(post => {
         this.post = post;
         const subtitle = "by " + this.post.author.user.first_name + " " + this.post.author.user.last_name + " on " +  formatDate(this.post.published_date, 'mediumDate', 'en-US');
-        this.titlebarService.publishTitle(this.post.title, subtitle);
+        this.navBarService.publishTitle(this.post.title, subtitle);
       });
     }
   }
