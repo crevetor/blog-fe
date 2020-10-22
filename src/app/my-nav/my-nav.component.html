@@ -11,17 +11,15 @@
   </mat-sidenav>
   <mat-sidenav-content class="mat-elevation-z0">
     <mat-toolbar class="mat-elevation-z2" color="primary">
-      <button
-        type="button"
-        aria-label="Toggle sidenav"
-        mat-icon-button
-        (click)="drawer.toggle()"
-        >
+      <mat-toolbar-row>
+        <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
         <mat-icon aria-label="Side nav toggle icon">menu</mat-icon>
       </button>
       <span>Antoine's website</span>
-      <!--<a mat-button routerLink="/about" routerLinkActive="active">About</a>
-      <a mat-button routerLink="/blog" routerLinkActive="active">Blog</a>-->
+      </mat-toolbar-row>
+    </mat-toolbar>
+    <mat-toolbar color="accent" *ngIf="titleBarTitle != ''">
+      <div class='title-bar'>{{titleBarTitle}}<span class="title-bar-subtitle mat-small" *ngIf="titelBarSubTitle != ''">{{titleBarSubTitle}}</span></div>
     </mat-toolbar>
     <router-outlet></router-outlet>
   </mat-sidenav-content>
