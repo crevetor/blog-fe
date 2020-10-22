@@ -24,6 +24,7 @@ const appRoutes: Routes = [
   { path: 'blog', component: BlogComponent },
   { path: 'blog/post/:id', component: PostComponent},
   { path: 'about', component: AboutComponent },
+  { path: '', redirectTo: '/blog', pathMatch: 'full'}
 ];
 
 @NgModule({
