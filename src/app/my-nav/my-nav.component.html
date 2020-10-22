@@ -5,8 +5,8 @@
       [opened]="false">
     <mat-toolbar>Menu</mat-toolbar>
     <mat-nav-list>
-      <a mat-list-item routerLink="/about" routerLinkActive="active">About</a>
-      <a mat-list-item routerLink="/blog" routerLinkActive="active">Blog</a>
+      <a mat-list-item routerLink="/about" routerLinkActive="mat-background" (click)="drawer.close()">About</a>
+      <a mat-list-item routerLink="/blog" routerLinkActive="mat-background" (click)="drawer.close()">Blog</a>
     </mat-nav-list>
   </mat-sidenav>
   <mat-sidenav-content>
