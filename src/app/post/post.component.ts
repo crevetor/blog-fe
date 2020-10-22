@@ -39,4 +39,8 @@ export class PostComponent implements OnInit {
   onPostSummaryClicked(){
     this.router.navigate(['/blog/post/', this.post.id]);
   }
+
+  ngOnDestroy() {
+    this.navBarService.clearTitle();
+  }
 }
