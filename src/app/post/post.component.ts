@@ -1,5 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute, Router } from '@angular/router';
+import { formatDate } from '@angular/common';
+
 import { Post } from './post';
+
+import { BlogService } from '../blog.service';
+import { TitleBarService } from '../titlebar.service';
 
 @Component({
   selector: 'app-post',
@@ -10,9 +16,27 @@ export class PostComponent implements OnInit {
   @Input() post: Post;
   @Input() summary: boolean;
 
-  constructor() { }
+  constructor(
+    private route: ActivatedRoute,
+    private router: Router,
+    private blogService: BlogService,
+    private titlebarService: TitleBarService
+    ) {
+   
+   }
 
   ngOnInit() {
+    const postId = this.route.snapshot.paramMap.get('id');
+    if (postId) {
+      this.blogService.getPost(Number(postId)).subscribe(post => {
+        this.post = post;
+        const subtitle = "by " + this.post.author.user.first_name + " " + this.post.author.user.last_name + " on " +  formatDate(this.post.published_date, 'mediumDate', 'en-US');
+        this.titlebarService.publishTitle(this.post.title, subtitle);
+      });
+    }
   }
 
+  onPostSummaryClicked(){
+    this.router.navigate(['/blog/post/', this.post.id]);
+  }
 }
