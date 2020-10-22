@@ -24,6 +24,7 @@
     "core-js": "^2.5.4",
     "ngx-markdown": "^10.1.1",
     "rxjs": "~6.6.3",
+    "schematics-scss-migrate": "^1.1.7",
     "tslib": "^2.0.0",
     "zone.js": "~0.10.2"
   },
