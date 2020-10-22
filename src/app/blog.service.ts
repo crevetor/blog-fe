@@ -11,7 +11,7 @@ import { environment } from 'src/environments/environment';
   providedIn: 'root'
 })
 export class BlogService {
-  private base_url = environment.production ? 'https://blogapi.crevetor.org/posts' : 'http://localhost:8000/posts';
+  private base_url = environment.production ? 'https://blogapi.crevetor.org/posts/' : 'http://localhost:8000/posts/';
 
   constructor(private http: HttpClient) { }
 
@@ -20,6 +20,6 @@ export class BlogService {
   }
 
   getPost(id:number): Observable<Post> {
-    return this.http.get<Post>(this.base_url + "/" + id);
+    return this.http.get<Post>(this.base_url +  id);
   }
 }
