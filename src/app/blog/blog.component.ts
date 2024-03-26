@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 
 import { BlogService } from '../blog.service';
-import { Post } from '../post/post';
+import { Tag, Post } from '../post/post';
 
 @Component({
   selector: 'app-blog',
@@ -11,6 +11,7 @@ import { Post } from '../post/post';
 export class BlogComponent implements OnInit {
 
   posts: Post[];
+  filters: Set<Tag>;
 
   constructor(private blogService: BlogService) { }
 
@@ -21,6 +22,11 @@ export class BlogComponent implements OnInit {
   getPosts(): void {
     this.blogService.getPosts()
     .subscribe(posts => this.posts = posts);
+  }
+
+  onFiltered(tag: Tag) {
+    this.filters.add(tag)
+    this.posts.filter(function(post, idx, array) { return this.filter.isSubsetOf(post.tags); });
   }
 
 }

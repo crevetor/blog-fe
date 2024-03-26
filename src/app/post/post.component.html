@@ -1,17 +1,18 @@
 <mat-card class="post-summary-card" (click)="onPostSummaryClicked()" *ngIf="summary">
 	<mat-card-header>
-		<img mat-card-avatar src="{{post.author.photo}}"/>
+		<img mat-card-avatar src="{{post.author.photo}}" />
 		<mat-card-title>{{post.title}}</mat-card-title>
-		<mat-card-subtitle>Posted on {{post.published_date | date}} by {{post.author.user.first_name}} {{post.author.user.last_name}}</mat-card-subtitle>
+		<mat-card-subtitle>Posted on {{post.published_date | date}} by {{post.author.user.first_name}}
+			{{post.author.user.last_name}}</mat-card-subtitle>
 	</mat-card-header>
 	<mat-card-content markdown ngPreserveWhitespaces>
 		{{post.summary}}
 	</mat-card-content>
-    <mat-card-actions>
+	<mat-card-actions>
 		<mat-chip-list aria-label="Tags">
-			<mat-chip color="accent" *ngFor="let tag of post.tags">{{tag.tag}}</mat-chip>
+			<mat-chip color="accent" *ngFor="let tag of post.tags" (click)="filter(tag)">{{tag.tag}}</mat-chip>
 		</mat-chip-list>
-    </mat-card-actions>
+	</mat-card-actions>
 </mat-card>
 
 <div class="post-content mat-body-1" *ngIf="!summary" markdown ngPreserveWhitespaces>

@@ -1,8 +1,8 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { formatDate } from '@angular/common';
 
-import { Post } from './post';
+import { Tag, Post } from './post';
 
 import { BlogService } from '../blog.service';
 import { NavBarService } from '../navbar.service';
@@ -15,6 +15,7 @@ import { NavBarService } from '../navbar.service';
 export class PostComponent implements OnInit {
   @Input() post: Post;
   @Input() summary: boolean;
+  @Output() filtered = new EventEmitter<Tag>();
 
   constructor(
     private route: ActivatedRoute,
@@ -38,6 +39,10 @@ export class PostComponent implements OnInit {
 
   onPostSummaryClicked(){
     this.router.navigate(['/blog/post/', this.post.id]);
+  }
+
+  filter(tag: Tag) {
+    this.filtered.emit(tag);
   }
 
   ngOnDestroy() {

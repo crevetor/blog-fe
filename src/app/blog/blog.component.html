@@ -1,1 +1,4 @@
-<app-post *ngFor="let post of posts" [post]="post" [summary]="true"></app-post>
+<mat-chip-list *ngIf="filters.size != 0" aria-label="Tags">
+    <mat-chip color="accent" *ngFor="let tag of post.tags" (click)="filter(tag)">{{tag.tag}}</mat-chip>
+</mat-chip-list>
+<app-post *ngFor="let post of posts" [post]="post" [summary]="true" (filtered)="onFiltered($event)"></app-post>

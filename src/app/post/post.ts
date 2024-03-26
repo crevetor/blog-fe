@@ -9,10 +9,15 @@ class Author {
   user: User;
   photo: string;
 }
+export class Tag {
+  id: number;
+  tag: string;
+  description: string;
+}
 export class Post {
   id: number;
   author: Author;
-  tags: string[];
+  tags: Set<Tag>;
   state: string;
 
   title: string;
