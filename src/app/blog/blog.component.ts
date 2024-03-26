@@ -11,13 +11,13 @@ import { Tag, Post } from '../post/post';
 export class BlogComponent implements OnInit {
 
   posts: Post[];
-  filters: Set<Tag>;
+  filters: Tag[];
 
   constructor(private blogService: BlogService) { }
 
   ngOnInit() {
     this.getPosts();
-    this.filters = new Set<Tag>();
+    this.filters = [];
   }
 
   getPosts(): void {
@@ -25,9 +25,19 @@ export class BlogComponent implements OnInit {
     .subscribe(posts => this.posts = posts);
   }
 
-  onFiltered(tag: Tag) {
-    this.filters.add(tag)
-    this.posts.filter(function(post, idx, array) { return this.filter.isSubsetOf(post.tags); });
+  filteredPosts(): Post[] {
+    if (this.filters.length == 0) {
+      return this.posts;
+    }
+
+    return this.posts.filter(post => this.filters.map(value => value.id).every(value => post.tags.map(value => value.id).includes(value)));
   }
 
+  onFiltered(tag: Tag) {
+    this.filters.push(tag)
+  }
+
+  removeFilter(tag: Tag) {
+    this.filters.splice(this.filters.findIndex(value => value.id == tag.id), 1);
+  }
 }

@@ -1,4 +1,10 @@
-<mat-chip-list *ngIf="filters.size != 0" aria-label="Tags">
-    <mat-chip color="accent" *ngFor="let tag of post.tags" (click)="filter(tag)">{{tag.tag}}</mat-chip>
-</mat-chip-list>
-<app-post *ngFor="let post of posts" [post]="post" [summary]="true" (filtered)="onFiltered($event)"></app-post>
+<mat-card *ngIf="filters.length != 0">
+    <mat-card-title>Filters</mat-card-title>
+    <mat-card-actions>
+        <mat-chip-list aria-label="Tags">
+            <mat-chip color="accent" *ngFor="let tag of filters" (click)="removeFilter(tag)">{{tag.tag}}</mat-chip>
+        </mat-chip-list>
+    </mat-card-actions>
+</mat-card>
+<app-post *ngFor="let post of filteredPosts()" [post]="post" [summary]="true"
+    (filtered)="onFiltered($event)"></app-post>

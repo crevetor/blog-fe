@@ -17,7 +17,7 @@ export class Tag {
 export class Post {
   id: number;
   author: Author;
-  tags: Set<Tag>;
+  tags: Tag[];
   state: string;
 
   title: string;
