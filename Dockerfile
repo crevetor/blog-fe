@@ -8,4 +8,5 @@ RUN npm install
 RUN /home/node/app/node_modules/.bin/ng build --prod --configuration=production
 
 FROM nginx:latest
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 COPY --from=node_build /home/node/app/dist/blog /usr/share/nginx/html
