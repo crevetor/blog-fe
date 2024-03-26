@@ -34,7 +34,9 @@ export class BlogComponent implements OnInit {
   }
 
   onFiltered(tag: Tag) {
-    this.filters.push(tag)
+    if (!this.filters.map(value => value.id).includes(tag.id)) {
+      this.filters.push(tag);
+    }
   }
 
   removeFilter(tag: Tag) {
