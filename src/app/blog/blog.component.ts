@@ -17,6 +17,7 @@ export class BlogComponent implements OnInit {
 
   ngOnInit() {
     this.getPosts();
+    this.filters = new Set<Tag>();
   }
 
   getPosts(): void {
